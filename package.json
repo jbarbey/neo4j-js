@@ -1,0 +1,102 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "neo4j-js@git+https://github.com/sibador/neo4j-js.git",
+        "scope": null,
+        "escapedName": "neo4j-js",
+        "name": "neo4j-js",
+        "rawSpec": "git+https://github.com/sibador/neo4j-js.git",
+        "spec": "git+https://github.com/sibador/neo4j-js.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:sibador/neo4j-js.git",
+          "sshUrl": "git+ssh://git@github.com/sibador/neo4j-js.git",
+          "httpsUrl": "git+https://github.com/sibador/neo4j-js.git",
+          "gitUrl": "git://github.com/sibador/neo4j-js.git",
+          "shortcut": "github:sibador/neo4j-js",
+          "directUrl": "https://raw.githubusercontent.com/sibador/neo4j-js/master/package.json"
+        }
+      },
+      "C:\\Users\\SPARE ISTYATECH\\Documents\\GraphItV2\\node_modules\\sails-neo4j"
+    ]
+  ],
+  "_from": "git+https://github.com/sibador/neo4j-js.git",
+  "_id": "neo4j-js@0.0.8",
+  "_inCache": true,
+  "_location": "/neo4j-js",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "neo4j-js@git+https://github.com/sibador/neo4j-js.git",
+    "scope": null,
+    "escapedName": "neo4j-js",
+    "name": "neo4j-js",
+    "rawSpec": "git+https://github.com/sibador/neo4j-js.git",
+    "spec": "git+https://github.com/sibador/neo4j-js.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:sibador/neo4j-js.git",
+      "sshUrl": "git+ssh://git@github.com/sibador/neo4j-js.git",
+      "httpsUrl": "git+https://github.com/sibador/neo4j-js.git",
+      "gitUrl": "git://github.com/sibador/neo4j-js.git",
+      "shortcut": "github:sibador/neo4j-js",
+      "directUrl": "https://raw.githubusercontent.com/sibador/neo4j-js/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/sails-neo4j"
+  ],
+  "_resolved": "git+https://github.com/sibador/neo4j-js.git#10acde0992d8a8681f4a9f9a8bfd431d5ae66582",
+  "_shasum": "387087441a18757be0da6db6545f32f9492e9807",
+  "_shrinkwrap": null,
+  "_spec": "neo4j-js@git+https://github.com/sibador/neo4j-js.git",
+  "_where": "C:\\Users\\SPARE ISTYATECH\\Documents\\GraphItV2\\node_modules\\sails-neo4j",
+  "analyze": false,
+  "author": {
+    "name": "Atlantis Flight Development",
+    "email": "bret@atlantisflight.org"
+  },
+  "bugs": {
+    "url": "https://github.com/sibador/neo4j-js/issues"
+  },
+  "contributors": [
+    {
+      "name": "Bret Copeland",
+      "email": "bret@atlantisflight.org"
+    }
+  ],
+  "dependencies": {
+    "arguer": "0.0.1"
+  },
+  "description": "A Node.js (pure JavaScript) client library for accessing neo4j databases with batch support.",
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "gitHead": "10acde0992d8a8681f4a9f9a8bfd431d5ae66582",
+  "homepage": "https://github.com/sibador/neo4j-js#readme",
+  "keywords": [
+    "neo4j",
+    "rest",
+    "api",
+    "graph",
+    "database",
+    "asynchronous"
+  ],
+  "license": "MIT",
+  "main": "./lib/Neo4jApi.js",
+  "name": "neo4j-js",
+  "optionalDependencies": {},
+  "readme": "# neo4j-js\r\n\r\nA Node.js (pure JavaScript) client library for accessing neo4j databases with batch support.\r\n\r\n### Goals\r\n\r\n* Support as much (or all) of the REST API as possible.\r\n* Batch processing (both manual and through automatic shortcuts).\r\n* Have intuitive function \"overloads\" for usability.\r\n* Pure JavaScript without dependencies.\r\n\r\n#### Rationale (or, why another Node.js library for neo4j?)\r\n\r\nA Node.js client library already exists for neo4j: [https://github.com/thingdom/node-neo4j](https://github.com/thingdom/node-neo4j). It has been around since 2011 and is likely a good choice for Node.js/neo4j projects which need a proven solution in the near future.\r\n\r\nAfter looking at `node-neo4j`, I found a few things which prompted me to write my own library:\r\n\r\n* No batch support\r\n* Odd node creation syntax\r\n* Development seems to have stalled\r\n* Written in CoffeeScript (just a personal preference)\r\n\r\n## Current Status\r\n\r\n> Note: This library is in the early stages of development, is incomplete, and not by any means guaranteed to be stable. If you have input, or are interested in contributing to development or testing, __please contact me!__ My email address is on my [github account](https://github.com/bretcope), or you can use the [issue tracker](https://github.com/bretcope/neo4j-js/issues).\r\n\r\nA comprehensive checklist of which API methods have and have not been implemented so far is available in the [Rest.md](docs/REST.md) file.\r\n\r\nAll of the methods have only been tested on neo4j 1.8.2 so far. Backwards compatibility characteristics are unknown. \r\n\r\n##### Cypher Queries\r\n\r\nCypher Queries with and without params are fully supported, however, nested results are not currently parsed for Node/Relationship/Path objects. In other words, nested results are returned raw.\r\n\r\n##### Node and Relationship API Endpoints\r\n\r\nNearly all Node and Relationship endpoint features are implemented. See the [Rest.md](docs/REST.md) file for details.\r\n\r\n##### Indexing\r\n\r\nIndexing is partially implemented. Indexes can be created, deleted, listed, and queried. Key/value pairs can be inserted and removed from indexes using nodes and relationships. Automatic Indexing can be configured. Unique Indexing features are being worked on currently.\r\n\r\n##### Graph Algorithms\r\n\r\nThe built in graph algorithms of shortest path and Dijkstra are supported through the REST API, but not yet through this library. It is, however, a priority and should be relatively easy.\r\n\r\n##### Gremlin Plugin\r\n\r\nGremlin support has not been implemented yet. Priority is considered low since Cypher queries are available, and preferred in most cases.\r\n\r\n## Usage\r\n\r\nThe examples below are provided to help get you started, but are far from comprehensive. [Reference Documentation](docs/Documentation.md) is currently being worked on. Another place to look for examples in the meantime are the [unit tests](#unit-testing) found inside the `/test` folder.\r\n\r\n### Install\r\n\r\n```\r\nnpm install neo4j-js\r\n```\r\n\r\n### Connecting\r\n\r\n```javascript\r\nneo4j.connect('http://localhost:7474/db/data/', function (err, graph) {\r\n    if (err)\r\n        throw err;\r\n        \r\n    // do something with the graph\r\n});\r\n```\r\n\r\n### Creating Nodes\r\n\r\n[Graph.createNode reference](docs/Graph.md#createnode)\r\n\r\n```javascript\r\ngraph.createNode({ prop1: 'node property', boolProperty: false }, function (err, node) {\r\n    console.log(err ? err : node);\r\n});\r\n```\r\n\r\n### Get Node By Id\r\n\r\n[Graph.getNode reference](docs/Graph.md#getnode)\r\n\r\n```javascript\r\ngraph.getNode(5, function (err, node) {\r\n    console.log(err ? err : node.data); // print the node's properties\r\n}\r\n```\r\n\r\n### Get Multiple Nodes\r\n\r\n[Graph.getNode reference](docs/Graph.md#getnode)\r\n\r\n```javascript\r\ngraph.getNode([5, 23, 84], function (err, nodes) {\r\n    if (err) {\r\n        console.log(err)\r\n        return;\r\n    }\r\n    \r\n    for (var i in nodes)\r\n        console.log(nodes[i].data);\r\n}\r\n```\r\n\r\n### Cypher Queries\r\n\r\nSee [Graph.query](docs/Graph.md#query) for an example.\r\n\r\n### Batching\r\n\r\nMost of the library functions optionally accept a [Batch](docs/Batch.md) object as the first argument. This allows multiple API calls to be grouped into a single request which may significantly improve performance in some cases.\r\n\r\n```javascript\r\nvar batch = graph.createBatch();\r\n\r\n//create a node and get another in the same request\r\ngraph.createNode(batch, { key: 'value' }, function (error, node) {\r\n    //this will not be called until after batch.run()\r\n});\r\ngraph.getNode(batch, 18, function (error, node) {\r\n    //this will not be called until after batch.run()\r\n});\r\n\r\nbatch.run();\r\n```\r\n\r\n## Unit Testing\r\n\r\nSome unit tests are in place, and more should follow as appropriate.\r\n\r\nThe unit tests rely on [Mocha](http://visionmedia.github.com/mocha/) and [Chai](http://chaijs.com/) which are included as development dependencies in the npm package. If not installed already, go to the `node_modules/neo4j` directory and type `npm install`.\r\n \r\nTo run the unit tests:\r\n\r\n* Copy `test/config.sample.json` to `test/config.json` and edit as necessary.\r\n* Go to the root `neo4j-js` directory and type `mocha`.\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sibador/neo4j-js.git"
+  },
+  "version": "0.0.8"
+}
